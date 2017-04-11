@@ -35,7 +35,17 @@ ln -fs "$DIR/zsh/zshrc.symlink" "$HOME/.zshrc"
 # Vim
 ############################################################################
 mkdir -p "$HOME/.vim"
+
+# Colors
 if [ ! -d "$HOME/.vim/colors" ]; then
 	git clone https://github.com/flazz/vim-colorschemes.git "$HOME/.vim/colors"
 fi
+
+# Vundle
+if [ ! -d "$HOME/.vim/bundle" ]; then
+	mkdir -p "$HOME/.vim/bundle"
+	git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
+fi
+
 ln -fs "$DIR/vim/vimrc.symlink" "$HOME/.vimrc"
+vim +PluginInstall +qall
