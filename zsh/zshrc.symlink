@@ -52,3 +52,8 @@ alias ga="git add"
 alias gc="git commit"
 alias gd="git diff"
 alias gs="git status"
+
+# Custom
+if [ -f "$HOME/.zshrc.custom" ]; then
+	source "$HOME/.zshrc.custom"
+fi
