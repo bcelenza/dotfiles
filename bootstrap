@@ -1,0 +1,41 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+############################################################################
+# Git
+############################################################################
+if ! hash git 2>/dev/null; then
+	echo "You should install git first."
+	exit 1
+fi
+
+# Set user and email
+IFS= read -r -p "What name should be used for git? " GIT_NAME
+git config --global user.name "$GIT_NAME"
+IFS= read -r -p "What email should be used for git? " GIT_EMAIL
+read -a GIT_EMAIL
+git config --global user.email "$GIT_EMAIL"
+
+# Remote branch matches current by default
+git config --global push.default current
+	
+# Rebase on pull
+git config --global pull.rebase true
+
+############################################################################
+# ZSH
+############################################################################
+if [ ! -d "$HOME/.oh-my-zsh" ]; then 
+	git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+fi
+ln -fs "$DIR/zsh/zshrc.symlink" "$HOME/.zshrc"
+
+############################################################################
+# Vim
+############################################################################
+mkdir -p "$HOME/.vim"
+if [ ! -d "$HOME/.vim/colors" ]; then
+	git clone https://github.com/flazz/vim-colorschemes.git "$HOME/.vim/colors"
+fi
+ln -fs "$DIR/vim/vimrc.symlink" "$HOME/.vimrc"
