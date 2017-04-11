@@ -14,7 +14,6 @@ fi
 IFS= read -r -p "What name should be used for git? " GIT_NAME
 git config --global user.name "$GIT_NAME"
 IFS= read -r -p "What email should be used for git? " GIT_EMAIL
-read -a GIT_EMAIL
 git config --global user.email "$GIT_EMAIL"
 
 # Remote branch matches current by default
