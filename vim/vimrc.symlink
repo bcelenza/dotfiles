@@ -16,6 +16,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
 
@@ -29,3 +31,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Disable folding in markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Airline
+let g:airline_theme='molokai'
+" Always show status line
+set laststatus=2
+" Always display all tabs
+let g:airline#extensions#tabline#enabled = 1
+
