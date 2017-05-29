@@ -2,6 +2,8 @@
 syntax on
 colorscheme monokai
 set number
+set listchars=space:.,tab:>-
+set list
 
 " Disable backup and swap
 set nobackup
