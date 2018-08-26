@@ -1,7 +1,9 @@
 " Look & Feel
 syntax on
 set number
-set listchars=space:.,tab:>-
+" Whitespace
+hi SpecialKey ctermfg=239 guifg=#4e4e4e
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set list
 
 " Disable backup and swap
