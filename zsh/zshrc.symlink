@@ -51,6 +51,7 @@ export EDITOR=vim
 alias ga="git add"
 alias gc="git commit"
 alias gd="git diff"
+alias gg="git stage"
 alias gs="git status"
 
 # Custom
