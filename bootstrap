@@ -18,27 +18,35 @@ git config --global user.email "$GIT_EMAIL"
 
 # Remote branch matches current by default
 git config --global push.default current
-	
+
 # Rebase on pull
 git config --global pull.rebase true
 
 ############################################################################
 # ZSH
 ############################################################################
-if [ ! -d "$HOME/.oh-my-zsh" ]; then 
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
 fi
 ln -fs "$DIR/zsh/zshrc.symlink" "$HOME/.zshrc"
+
+
+############################################################################
+# A splash of color!
+############################################################################
+COLOR_DIR="$HOME/.colors"
+if [ ! -d "$COLOR_DIR" ]; then
+	git clone https://github.com/bcelenza/syntax-highlighting.git "$COLOR_DIR"
+fi
+TERMINAL_SCHEMES="$COLOR_DIR/atelier-schemes/output/gnome-terminal"
+for scheme in $(ls $TERMINAL_SCHEMES); do
+	bash $TERMINAL_SCHEMES/$scheme
+done
 
 ############################################################################
 # Vim
 ############################################################################
 mkdir -p "$HOME/.vim"
-
-# Colors
-if [ ! -d "$HOME/.vim/colors" ]; then
-	git clone https://github.com/flazz/vim-colorschemes.git "$HOME/.vim/colors"
-fi
 
 # Vundle
 if [ ! -d "$HOME/.vim/bundle" ]; then
