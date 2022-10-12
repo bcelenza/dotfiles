@@ -49,7 +49,7 @@ export EDITOR=vim
 
 # Git aliases
 alias ga="git add"
-alias gc="git commit"
+alias gc="git commit -S"
 alias gd="git diff"
 alias gg="git stage"
 alias gs="git status"
