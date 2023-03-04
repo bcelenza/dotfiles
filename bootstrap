@@ -30,18 +30,8 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 ln -fs "$DIR/zsh/zshrc.symlink" "$HOME/.zshrc"
 
+curl -sS https://starship.rs/install.sh | sh
 
-############################################################################
-# A splash of color!
-############################################################################
-COLOR_DIR="$HOME/.colors"
-if [ ! -d "$COLOR_DIR" ]; then
-	git clone https://github.com/bcelenza/syntax-highlighting.git "$COLOR_DIR"
-fi
-TERMINAL_SCHEMES="$COLOR_DIR/atelier-schemes/output/gnome-terminal"
-for scheme in $(ls $TERMINAL_SCHEMES); do
-	bash $TERMINAL_SCHEMES/$scheme
-done
 
 ############################################################################
 # Vim
